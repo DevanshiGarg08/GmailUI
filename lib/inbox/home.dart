@@ -78,21 +78,19 @@ class Home extends State<App> {
                 ],
               ),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) {
-                        return Internal(
-                            obj.main[index],
-                            obj.title[index],
-                            obj.time[index],
-                            obj.colors[index],
-                            obj.heading[index],
-                            obj.para[index]);
-                      },
-                      settings: RouteSettings(
-                        arguments: obj.main[index],
-                      )),
+                Navigator.of(context).pushNamed(
+                 
+                  "/emails",
+                  arguments: {
+                    "main":obj.main[index],
+                    "title":obj.title[index],
+                    "subtitle":obj.subtitle[index],
+                    "time":obj.time[index],
+                    "colors":obj.colors[index],
+                    "heading":obj.heading[index],
+                    "para":obj.para[index]
+                  }
+                 
                 );
               },
               trailing: Container(

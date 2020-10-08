@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:navigation/inbox/home.dart';
-
+import 'package:navigation/inbox/internal.dart';
+import 'package:navigation/routes/router.dart';
 void main() {
   runApp(MyApp());
 }
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget
       theme: ThemeData(
       primarySwatch: Colors.red,
     ),
-      home: App(),
+     initialRoute: "/",
+     routes: customRoute,
     );
     throw UnimplementedError();
   }

@@ -2,17 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:navigation/model/mails.dart';
 
 class Internal extends StatelessWidget {
-  String name;
-  String title;
-  String time;
-  Color color;
-  String heading;
-  String para;
-  Internal(
-      this.name, this.title, this.time, this.color, this.heading, this.para);
+  
   @override
   Widget build(BuildContext context) {
-    final String x = ModalRoute.of(context).settings.arguments;
+    final Map emails = ModalRoute.of(context).settings.arguments;
 
     // TODO: implement build
     return Scaffold(
@@ -66,7 +59,7 @@ class Internal extends StatelessWidget {
           child: Column(children: [
             ListTile(
               title: Text(
-                title,
+                emails['title'],
                 style: TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.w500,
@@ -91,15 +84,15 @@ class Internal extends StatelessWidget {
             ListTile(
               isThreeLine: true,
               leading: CircleAvatar(
-                backgroundColor: color,
+                backgroundColor: emails['colors'],
                 child: Text(
-                  name.substring(0, 1),
+                  emails['main'].substring(0, 1),
                   style: TextStyle(fontSize: 25.0, color: Colors.white),
                 ),
                 radius: 26,
               ),
               title: Text(
-                name,
+                emails['main'],
                 style: TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.w500,
@@ -120,7 +113,7 @@ class Internal extends StatelessWidget {
                 ),
                 Row(children: [
                   Text(
-                    "${time}",
+                    "${emails['time']}",
                     // overflow: TextOverflow.ellipsis,
                     //   softWrap: false,
                     style: TextStyle(
@@ -176,14 +169,14 @@ class Internal extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    heading,
+                    emails['heading'],
                     style: TextStyle(
                         fontSize: 22.0,
                         fontWeight: FontWeight.w500,
                         fontFamily: 'Poppins'),
                   ),
                   Text(
-                    para,
+                     emails['para'],
                     style: TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.w300,
